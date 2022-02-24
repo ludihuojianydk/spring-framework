@@ -32,6 +32,7 @@ package org.springframework.beans.factory;
  * @author Juergen Hoeller
  * @since 3.1
  */
+/** 顾名思义：自动的 **/
 public interface Aware {
 
 }
