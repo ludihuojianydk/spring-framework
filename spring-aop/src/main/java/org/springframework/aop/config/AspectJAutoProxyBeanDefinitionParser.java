@@ -38,6 +38,7 @@ import org.springframework.lang.Nullable;
  */
 class AspectJAutoProxyBeanDefinitionParser implements BeanDefinitionParser {
 
+	//注册 AnnotationAwareAspectJAutoProxyCreator
 	@Override
 	@Nullable
 	public BeanDefinition parse(Element element, ParserContext parserContext) {

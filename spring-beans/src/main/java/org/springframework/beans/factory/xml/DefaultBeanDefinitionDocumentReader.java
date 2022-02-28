@@ -165,6 +165,12 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 	 * "import", "alias", "bean".
 	 * @param root the DOM root element of the document
 	 */
+	/**
+	/**
+	 * 解析标签的入口
+	 * 默认标签有 beans、bean、alias、import
+	 * 常用的自定义标签有 aop、tx、context 等
+	 */
 	protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
 		if (delegate.isDefaultNamespace(root)) {
 			NodeList nl = root.getChildNodes();
@@ -180,7 +186,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 				}
 			}
 		}
-		else {
+		else {//自定义标签
 			delegate.parseCustomElement(root);
 		}
 	}

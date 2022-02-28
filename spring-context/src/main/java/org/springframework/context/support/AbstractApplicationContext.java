@@ -398,7 +398,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * @param eventType the resolved event type, if known
 	 * @since 4.2
 	 */
-	protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
+	protected void publishevent(Object event, @Nullable ResolvableType eventType) {
 		Assert.notNull(event, "Event must not be null");
 
 		// Decorate event as an ApplicationEvent if necessary

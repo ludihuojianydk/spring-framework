@@ -164,6 +164,8 @@ public class ReflectiveAspectJAdvisorFactory extends AbstractAspectJAdvisorFacto
 		return advisors;
 	}
 
+	//getAdvisorMethods 通过 Class.getDeclaredMethods() 获取类的“public, protected, private”方法，不包括继承的方法，
+	// 同时过滤有 @PointCut 注解的方法（即切点表达式）
 	private List<Method> getAdvisorMethods(Class<?> aspectClass) {
 		List<Method> methods = new ArrayList<>();
 		ReflectionUtils.doWithMethods(aspectClass, methods::add, adviceMethodFilter);
