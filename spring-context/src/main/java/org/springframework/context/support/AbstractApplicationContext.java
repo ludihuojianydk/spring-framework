@@ -632,10 +632,12 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment.
+		// 留给子类覆盖，初始化属性资源
 		initPropertySources();
 
 		// Validate that all properties marked as required are resolvable:
 		// see ConfigurablePropertyResolver#setRequiredProperties
+		// 创建并获取环境对象，验证需要的属性文件是否都已经放入环境中
 		getEnvironment().validateRequiredProperties();
 
 		// Store pre-refresh ApplicationListeners...
@@ -687,7 +689,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));
 
 		// Configure the bean factory with context callbacks.
-		// 添加ApplicationContextAware的处理器
+		// 添加 ApplicationContextAware 的处理器
 		beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
 		beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
 		beanFactory.ignoreDependencyInterface(EmbeddedValueResolverAware.class);
